@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root CSS variables for theme tokens */
+:root {
+  /* Color tokens - Updated to match new design theme */
+  --color-primary: #00C7B0;
+  --color-secondary: #2A2F5B;
+  --color-background: #1A1C24;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B4B7C4;
+  --color-text-white: #ffffff;
+  --color-border: #262735;
+
+  /* Typography tokens from Figma */
+  --font-family-primary: "Inter", sans-serif;
+  --font-size-small: 11px;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-feature-settings: "case", "ss02", "tnum", "liga", "calt";
+
+  /* Transition tokens from Figma */
+  --transition-duration-fast: 0.1s;
+  --transition-property-opacity: opacity;
+
+  /* Layout tokens */
+  --position-offscreen: -1000px;
+
+  /* Theme preference */
+  --theme-preference: light;
+
+  /* Legacy HSL variables for compatibility */
+  --background: 220 15% 11%; /* Updated to match #1A1C24 */
+  --foreground: 210 40% 98%;
+  
+  --card: 224 71% 4%;
+  --card-foreground: 210 40% 98%;
+  
+  --popover: 224 71% 4%;
+  --popover-foreground: 210 40% 98%;
+  
+  --primary: 174 100% 39%; /* Updated to match #00C7B0 */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 230 37% 26%; /* Updated to match #2A2F5B */
+  --secondary-foreground: 210 40% 98%;
+  
+  --accent: 349 100% 62%; /* Updated to match #FF3C5F */
+  --accent-foreground: 210 40% 98%;
+  
+  --muted: 228 24% 15%;
+  --muted-foreground: 215 20% 65%;
+  
+  --destructive: 0 63% 47%;
+  --destructive-foreground: 210 40% 98%;
+  
+  --success: 174 100% 39%; /* Updated to match new success color #00C7B0 */
+  --success-foreground: 210 40% 98%;
+  
+  --warning: 25 100% 50%; /* Updated to match #FF6B00 */
+  --warning-foreground: 210 40% 98%;
+  
+  --border: 217 33% 17%;
+  --input: 217 33% 17%;
+  --ring: 174 100% 39%; /* Updated to match new primary */
+  
+  --radius: 0.5rem;
+}
+
+/* Base styles with Figma design tokens */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-family-primary);
+  font-feature-settings: var(--font-feature-settings);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Font preloader for Inter variants - positioned off-screen as per Figma */
+.font-preloader {
+  position: fixed;
+  left: var(--position-offscreen);
+  top: var(--position-offscreen);
+  font-family: var(--font-family-primary);
+  font-feature-settings: var(--font-feature-settings);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Component base styles with design tokens */
+  .btn {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-medium);
+    transition:
+      var(--transition-property-opacity) var(--transition-duration-fast)
+        ease-in-out,
+      background-color 0.2s ease-in-out,
+      border-color 0.2s ease-in-out,
+      transform 0.1s ease-in-out;
+  }
+
+  .card {
+    font-family: var(--font-family-primary);
+    background-color: var(--color-text-white);
+    transition:
+      box-shadow 0.2s ease-in-out,
+      transform 0.1s ease-in-out;
+  }
+
+  .input {
+    font-family: var(--font-family-primary);
+    transition:
+      border-color 0.2s ease-in-out,
+      box-shadow 0.2s ease-in-out;
+  }
+
+  /* Typography utilities with design tokens */
+  .text-small {
+    font-size: var(--font-size-small);
+  }
+
+  .font-medium {
+    font-weight: var(--font-weight-medium);
+  }
+
+  .font-semibold {
+    font-weight: var(--font-weight-semibold);
+  }
+  
+  /* Glassmorphism */
+  .glass {
+    @apply bg-opacity-20 backdrop-blur-md border border-white/10 shadow-lg;
+  }
+  
+  /* Animation classes */
+  .animate-fade-in {
+    animation: fadeIn var(--transition-duration-fast) ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out forwards;
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .animate-pulse-subtle {
+    animation: pulseSlow 3s ease-in-out infinite;
+  }
+  
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  
+  /* NLP Input styling - Updated with new primary color */
+  .nlp-input {
+    @apply font-mono bg-transparent border border-primary/30 focus:border-primary/90 rounded-lg px-4 py-2 w-full;
+    transition: all 0.2s ease;
+  }
+  
+  .nlp-input:focus {
+    @apply outline-none ring-1 ring-primary/50;
+    box-shadow: 0 0 0 2px rgba(0, 254, 217, 0.1);
+  }
+  
+  /* Isometric elements */
+  .isometric {
+    transform: rotateX(50deg) rotateZ(40deg);
+    transform-style: preserve-3d;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary/20 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/80;
+  }
+}
+
+/* Smooth scrolling and overscroll behavior from Figma */
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior-x: auto;
+  overscroll-behavior-y: none;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Remove default focus styles and use custom ones */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+/* Dark mode support (future enhancement) */
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] {
+    --color-background: #121212;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #b0b0b0;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-border: #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}
+
+/* Utility classes for design system */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

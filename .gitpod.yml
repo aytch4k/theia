@@ -12,10 +12,14 @@ ports:
   - port: 9339 # Node.js debug port
     onOpen: ignore
 tasks:
-  - init: npm ci && npm run build  && npm run download:plugins
+  - init: yarn --network-timeout 100000
     command: >
       jwm &
-      npm run start:browser ../.. --hostname=0.0.0.0
+      yarn electron start
+
+github:
+  prebuilds:
+    pullRequestsFromForks: true
 vscode:
   extensions:
-    - dbaeumer.vscode-eslint
+    - dbaeumer.vscode-eslint@2.0.0:CwAMx4wYz1Kq39+1Aul4VQ==

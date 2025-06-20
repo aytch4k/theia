@@ -1,0 +1,791 @@
+/********************************************************************************
+ * Copyright (C) 2020 EclipseSource and others.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the MIT License, which is available in the project root.
+ *
+ * SPDX-License-Identifier: MIT
+ ********************************************************************************/
+
+/* Import Autheo theme */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+    --theia-branding-logo: url(../icons/TheiaIDE.png);
+    
+    /* Autheo Theme Colors */
+    --color-primary: #00C7B0;
+    --color-secondary: #2A2F5B;
+    --color-accent: #FF3C5F;
+    --color-background: #1A1C24;
+    --color-background-paper: #010214;
+    --color-background-elevated: #262735;
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #B4B7C4;
+    --color-text-disabled: #6E727F;
+    --color-border: #262735;
+    --color-divider: #262735;
+    --color-success: #00C7B0;
+    --color-error: #F81818;
+    --color-warning: #FF6B00;
+    --color-info: #2A2F5B;
+    
+    /* Typography */
+    --font-family-primary: "Inter", sans-serif;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    
+    /* Theia specific overrides for dark theme */
+    --theia-ui-background: var(--color-background);
+    --theia-layout-color0: var(--color-background);
+    --theia-layout-color1: var(--color-background-elevated);
+    --theia-layout-color2: var(--color-background-paper);
+    --theia-layout-color3: var(--color-border);
+    --theia-brand-color0: var(--color-primary);
+    --theia-brand-color1: var(--color-secondary);
+    --theia-accent-color0: var(--color-accent);
+    --theia-accent-color1: var(--color-primary);
+    --theia-accent-color2: var(--color-secondary);
+    --theia-accent-color3: var(--color-accent);
+    --theia-warn-color0: var(--color-warning);
+    --theia-error-color0: var(--color-error);
+    --theia-success-color0: var(--color-success);
+    --theia-info-color0: var(--color-info);
+    --theia-inverse-ui-background: var(--color-text-primary);
+    --theia-ui-foreground: var(--color-text-primary);
+    --theia-ui-font-color0: var(--color-text-primary);
+    --theia-ui-font-color1: var(--color-text-secondary);
+    --theia-ui-font-color2: var(--color-text-disabled);
+    --theia-ui-font-color3: var(--color-text-secondary);
+    --theia-ui-border: var(--color-border);
+    --theia-panel-border: var(--color-border);
+    --theia-border-width: 1px;
+    --theia-ui-padding: 6px;
+    --theia-ui-element-height: 24px;
+    --theia-content-line-height: 22px;
+    --theia-content-font-size: 13px;
+    --theia-ui-font-size0: 11px;
+    --theia-ui-font-size1: 13px;
+    --theia-ui-font-size2: 16px;
+    --theia-ui-font-size3: 18px;
+    --theia-ui-icon-font-size: 14px;
+    --theia-private-horizontal-tab-height: 35px;
+    --theia-private-horizontal-tab-scrollbar-rail-height: 3px;
+    --theia-scrollbar-width: 10px;
+    --theia-scrollbar-rail-width: 10px;
+    --theia-scrollbar-thumb: var(--color-primary);
+    --theia-scrollbar-active-thumb: var(--color-primary);
+    --theia-menu-color0: var(--color-background-elevated);
+    --theia-menu-color1: var(--color-background);
+    --theia-menu-color2: var(--color-primary);
+    --theia-statusbar-color: var(--color-background-paper);
+    --theia-statusbar-font-color: var(--color-text-primary);
+    --theia-button-background: var(--color-primary);
+    --theia-button-foreground: var(--color-background);
+    --theia-secondary-button-background: var(--color-secondary);
+    --theia-secondary-button-foreground: var(--color-text-primary);
+    --theia-input-background: var(--color-background-elevated);
+    --theia-input-foreground: var(--color-text-primary);
+    --theia-input-border: var(--color-border);
+    --theia-dropdown-background: var(--color-background-elevated);
+    --theia-dropdown-foreground: var(--color-text-primary);
+    --theia-dropdown-border: var(--color-border);
+    --theia-list-activeSelectionBackground: var(--color-primary);
+    --theia-list-activeSelectionForeground: var(--color-background);
+    --theia-list-inactiveSelectionBackground: var(--color-background-elevated);
+    --theia-list-inactiveSelectionForeground: var(--color-text-primary);
+    --theia-list-hoverBackground: var(--color-background-elevated);
+    --theia-list-focusBackground: var(--color-primary);
+    --theia-list-focusForeground: var(--color-background);
+    --theia-editor-background: var(--color-background);
+    --theia-editor-foreground: var(--color-text-primary);
+    --theia-editorWidget-background: var(--color-background-elevated);
+    --theia-editorWidget-foreground: var(--color-text-primary);
+    --theia-editorWidget-border: var(--color-border);
+    --theia-tab-activeBackground: var(--color-background);
+    --theia-tab-activeForeground: var(--color-text-primary);
+    --theia-tab-activeBorder: var(--color-primary);
+    --theia-tab-inactiveBackground: var(--color-background-elevated);
+    --theia-tab-inactiveForeground: var(--color-text-secondary);
+    --theia-tab-border: var(--color-border);
+    --theia-activityBar-background: var(--color-background-paper);
+    --theia-activityBar-foreground: var(--color-text-primary);
+    --theia-activityBar-activeBorder: var(--color-primary);
+    --theia-activityBar-inactiveForeground: var(--color-text-secondary);
+    --theia-sideBar-background: var(--color-background-elevated);
+    --theia-sideBar-foreground: var(--color-text-primary);
+    --theia-sideBar-border: var(--color-border);
+    --theia-sideBarTitle-foreground: var(--color-text-primary);
+    --theia-sideBarSectionHeader-background: var(--color-background-paper);
+    --theia-sideBarSectionHeader-foreground: var(--color-text-primary);
+    --theia-tree-indentGuidesStroke: var(--color-border);
+    --theia-minimap-background: var(--color-background-elevated);
+    --theia-panel-background: var(--color-background-elevated);
+    --theia-panel-foreground: var(--color-text-primary);
+    --theia-panelTitle-activeForeground: var(--color-text-primary);
+    --theia-panelTitle-inactiveForeground: var(--color-text-secondary);
+    --theia-panelTitle-activeBorder: var(--color-primary);
+    --theia-terminal-background: var(--color-background);
+    --theia-terminal-foreground: var(--color-text-primary);
+    --theia-terminal-ansiBlack: #000000;
+    --theia-terminal-ansiRed: var(--color-error);
+    --theia-terminal-ansiGreen: var(--color-success);
+    --theia-terminal-ansiYellow: var(--color-warning);
+    --theia-terminal-ansiBlue: var(--color-info);
+    --theia-terminal-ansiMagenta: var(--color-accent);
+    --theia-terminal-ansiCyan: var(--color-primary);
+    --theia-terminal-ansiWhite: var(--color-text-primary);
+    --theia-terminal-ansiBrightBlack: var(--color-text-disabled);
+    --theia-terminal-ansiBrightRed: #FF6B6B;
+    --theia-terminal-ansiBrightGreen: #51CF66;
+    --theia-terminal-ansiBrightYellow: #FFD43B;
+    --theia-terminal-ansiBrightBlue: #74C0FC;
+    --theia-terminal-ansiBrightMagenta: #F783AC;
+    --theia-terminal-ansiBrightCyan: var(--color-primary);
+    --theia-terminal-ansiBrightWhite: var(--color-text-primary);
+    --theia-gitDecoration-addedResourceForeground: var(--color-success);
+    --theia-gitDecoration-modifiedResourceForeground: var(--color-warning);
+    --theia-gitDecoration-deletedResourceForeground: var(--color-error);
+    --theia-gitDecoration-untrackedResourceForeground: var(--color-info);
+    --theia-gitDecoration-ignoredResourceForeground: var(--color-text-disabled);
+    --theia-gitDecoration-conflictingResourceForeground: var(--color-accent);
+    --theia-gitDecoration-submoduleResourceForeground: var(--color-secondary);
+    --theia-notificationCenterHeader-background: var(--color-background-paper);
+    --theia-notificationCenterHeader-foreground: var(--color-text-primary);
+    --theia-notifications-background: var(--color-background-elevated);
+    --theia-notifications-foreground: var(--color-text-primary);
+    --theia-notifications-border: var(--color-border);
+    --theia-notificationLink-foreground: var(--color-primary);
+    --theia-debugToolBar-background: var(--color-background-elevated);
+    --theia-debugToolBar-border: var(--color-border);
+    --theia-debugIcon-breakpointForeground: var(--color-error);
+    --theia-debugIcon-breakpointDisabledForeground: var(--color-text-disabled);
+    --theia-debugIcon-breakpointUnverifiedForeground: var(--color-warning);
+    --theia-debugIcon-breakpointCurrentStackframeForeground: var(--color-primary);
+    --theia-debugIcon-breakpointStackframeForeground: var(--color-secondary);
+    --theia-debugConsole-infoForeground: var(--color-info);
+    --theia-debugConsole-warningForeground: var(--color-warning);
+    --theia-debugConsole-errorForeground: var(--color-error);
+    --theia-debugConsole-sourceForeground: var(--color-text-secondary);
+    --theia-debugConsoleInputIcon-foreground: var(--color-primary);
+    --theia-debugExceptionWidget-background: var(--color-background-elevated);
+    --theia-debugExceptionWidget-border: var(--color-error);
+    --theia-merge-current-header-background: rgba(0, 199, 176, 0.2);
+    --theia-merge-current-content-background: rgba(0, 199, 176, 0.1);
+    --theia-merge-incoming-header-background: rgba(42, 47, 91, 0.2);
+    --theia-merge-incoming-content-background: rgba(42, 47, 91, 0.1);
+    --theia-merge-border: var(--color-border);
+    --theia-merge-commonAncestors-header-background: rgba(180, 183, 196, 0.2);
+    --theia-merge-commonAncestors-content-background: rgba(180, 183, 196, 0.1);
+    --theia-settings-headerForeground: var(--color-text-primary);
+    --theia-settings-modifiedItemIndicator: var(--color-primary);
+    --theia-settings-dropdownBackground: var(--color-background-elevated);
+    --theia-settings-dropdownForeground: var(--color-text-primary);
+    --theia-settings-dropdownBorder: var(--color-border);
+    --theia-settings-checkboxBackground: var(--color-background-elevated);
+    --theia-settings-checkboxForeground: var(--color-text-primary);
+    --theia-settings-checkboxBorder: var(--color-border);
+    --theia-settings-textInputBackground: var(--color-background-elevated);
+    --theia-settings-textInputForeground: var(--color-text-primary);
+    --theia-settings-textInputBorder: var(--color-border);
+    --theia-settings-numberInputBackground: var(--color-background-elevated);
+    --theia-settings-numberInputForeground: var(--color-text-primary);
+    --theia-settings-numberInputBorder: var(--color-border);
+    --theia-keybindingLabel-background: var(--color-background-elevated);
+    --theia-keybindingLabel-foreground: var(--color-text-primary);
+    --theia-keybindingLabel-border: var(--color-border);
+    --theia-keybindingLabel-bottomBorder: var(--color-border);
+    --theia-widget-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --theia-scrollbar-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --theia-toolbar-hoverBackground: var(--color-background-elevated);
+    --theia-toolbar-hoverOutline: var(--color-primary);
+    --theia-toolbar-activeBackground: var(--color-primary);
+    --theia-toolbar-activeForeground: var(--color-background);
+    --theia-breadcrumb-foreground: var(--color-text-secondary);
+    --theia-breadcrumb-background: var(--color-background);
+    --theia-breadcrumb-focusForeground: var(--color-text-primary);
+    --theia-breadcrumb-activeSelectionForeground: var(--color-primary);
+    --theia-breadcrumbPicker-background: var(--color-background-elevated);
+    --theia-menu-foreground: var(--color-text-primary);
+    --theia-menu-background: var(--color-background-elevated);
+    --theia-menu-selectionForeground: var(--color-background);
+    --theia-menu-selectionBackground: var(--color-primary);
+    --theia-menu-selectionBorder: var(--color-primary);
+    --theia-menu-separatorBackground: var(--color-border);
+    --theia-menu-border: var(--color-border);
+    --theia-menubar-selectionForeground: var(--color-background);
+    --theia-menubar-selectionBackground: var(--color-primary);
+    --theia-menubar-selectionBorder: var(--color-primary);
+    --theia-button-hoverBackground: rgba(0, 199, 176, 0.8);
+    --theia-button-secondaryBackground: var(--color-secondary);
+    --theia-button-secondaryForeground: var(--color-text-primary);
+    --theia-button-secondaryHoverBackground: rgba(42, 47, 91, 0.8);
+    --theia-checkbox-background: var(--color-background-elevated);
+    --theia-checkbox-foreground: var(--color-text-primary);
+    --theia-checkbox-border: var(--color-border);
+    --theia-checkbox-selectBackground: var(--color-primary);
+    --theia-checkbox-selectBorder: var(--color-primary);
+    --theia-dropdown-listBackground: var(--color-background-elevated);
+    --theia-quickInput-background: var(--color-background-elevated);
+    --theia-quickInput-foreground: var(--color-text-primary);
+    --theia-quickInputTitle-background: var(--color-background-paper);
+    --theia-pickerGroup-foreground: var(--color-text-secondary);
+    --theia-pickerGroup-border: var(--color-border);
+    --theia-inputOption-activeBorder: var(--color-primary);
+    --theia-inputOption-hoverBackground: var(--color-background-elevated);
+    --theia-inputValidation-infoBackground: var(--color-info);
+    --theia-inputValidation-infoBorder: var(--color-info);
+    --theia-inputValidation-warningBackground: var(--color-warning);
+    --theia-inputValidation-warningBorder: var(--color-warning);
+    --theia-inputValidation-errorBackground: var(--color-error);
+    --theia-inputValidation-errorBorder: var(--color-error);
+    --theia-progressBar-background: var(--color-primary);
+    --theia-editorError-foreground: var(--color-error);
+    --theia-editorWarning-foreground: var(--color-warning);
+    --theia-editorInfo-foreground: var(--color-info);
+    --theia-editorHint-foreground: var(--color-text-secondary);
+    --theia-editorMarkerNavigation-background: var(--color-background-elevated);
+    --theia-editorMarkerNavigationError-background: var(--color-error);
+    --theia-editorMarkerNavigationWarning-background: var(--color-warning);
+    --theia-editorMarkerNavigationInfo-background: var(--color-info);
+    --theia-editorSuggestWidget-background: var(--color-background-elevated);
+    --theia-editorSuggestWidget-border: var(--color-border);
+    --theia-editorSuggestWidget-foreground: var(--color-text-primary);
+    --theia-editorSuggestWidget-selectedBackground: var(--color-primary);
+    --theia-editorSuggestWidget-selectedForeground: var(--color-background);
+    --theia-editorSuggestWidget-highlightForeground: var(--color-primary);
+    --theia-editorHoverWidget-foreground: var(--color-text-primary);
+    --theia-editorHoverWidget-background: var(--color-background-elevated);
+    --theia-editorHoverWidget-border: var(--color-border);
+    --theia-editorHoverWidget-statusBarBackground: var(--color-background-paper);
+    --theia-editorGroup-border: var(--color-border);
+    --theia-editorGroup-dropBackground: rgba(0, 199, 176, 0.2);
+    --theia-editorGroupHeader-noTabsBackground: var(--color-background);
+    --theia-editorGroupHeader-tabsBackground: var(--color-background-elevated);
+    --theia-editorGroupHeader-tabsBorder: var(--color-border);
+    --theia-editorGroupHeader-border: var(--color-border);
+    --theia-editorPane-background: var(--color-background);
+    --theia-sideBySideEditor-horizontalBorder: var(--color-border);
+    --theia-sideBySideEditor-verticalBorder: var(--color-border);
+    --theia-editorGutter-background: var(--color-background);
+    --theia-editorGutter-modifiedBackground: var(--color-warning);
+    --theia-editorGutter-addedBackground: var(--color-success);
+    --theia-editorGutter-deletedBackground: var(--color-error);
+    --theia-editorGutter-foldingControlForeground: var(--color-text-secondary);
+    --theia-editorGutter-commentRangeForeground: var(--color-text-secondary);
+    --theia-diff-insertedTextBackground: rgba(0, 199, 176, 0.2);
+    --theia-diff-removedTextBackground: rgba(248, 24, 24, 0.2);
+    --theia-diff-insertedLineBackground: rgba(0, 199, 176, 0.1);
+    --theia-diff-removedLineBackground: rgba(248, 24, 24, 0.1);
+    --theia-diff-diagonalFill: rgba(180, 183, 196, 0.3);
+    --theia-diffEditor-insertedTextBorder: var(--color-success);
+    --theia-diffEditor-removedTextBorder: var(--color-error);
+    --theia-diffEditor-border: var(--color-border);
+    --theia-diffEditorGutter-insertedLineBackground: rgba(0, 199, 176, 0.3);
+    --theia-diffEditorGutter-removedLineBackground: rgba(248, 24, 24, 0.3);
+    --theia-diffEditorOverview-insertedForeground: var(--color-success);
+    --theia-diffEditorOverview-removedForeground: var(--color-error);
+    --theia-editorOverviewRuler-border: var(--color-border);
+    --theia-editorOverviewRuler-findMatchForeground: var(--color-primary);
+    --theia-editorOverviewRuler-rangeHighlightForeground: var(--color-primary);
+    --theia-editorOverviewRuler-selectionHighlightForeground: var(--color-secondary);
+    --theia-editorOverviewRuler-wordHighlightForeground: var(--color-text-secondary);
+    --theia-editorOverviewRuler-wordHighlightStrongForeground: var(--color-text-primary);
+    --theia-editorOverviewRuler-modifiedForeground: var(--color-warning);
+    --theia-editorOverviewRuler-addedForeground: var(--color-success);
+    --theia-editorOverviewRuler-deletedForeground: var(--color-error);
+    --theia-editorOverviewRuler-errorForeground: var(--color-error);
+    --theia-editorOverviewRuler-warningForeground: var(--color-warning);
+    --theia-editorOverviewRuler-infoForeground: var(--color-info);
+    --theia-editorRuler-foreground: var(--color-border);
+    --theia-editorCodeLens-foreground: var(--color-text-secondary);
+    --theia-editorLightBulb-foreground: var(--color-warning);
+    --theia-editorLightBulbAutoFix-foreground: var(--color-primary);
+    --theia-peekView-border: var(--color-primary);
+    --theia-peekViewEditor-background: var(--color-background);
+    --theia-peekViewEditorGutter-background: var(--color-background-elevated);
+    --theia-peekViewEditor-matchHighlightBackground: rgba(0, 199, 176, 0.3);
+    --theia-peekViewEditor-matchHighlightBorder: var(--color-primary);
+    --theia-peekViewResult-background: var(--color-background-elevated);
+    --theia-peekViewResult-lineForeground: var(--color-text-primary);
+    --theia-peekViewResult-fileForeground: var(--color-text-secondary);
+    --theia-peekViewResult-selectionBackground: var(--color-primary);
+    --theia-peekViewResult-selectionForeground: var(--color-background);
+    --theia-peekViewResult-matchHighlightBackground: rgba(0, 199, 176, 0.3);
+    --theia-peekViewTitle-background: var(--color-background-paper);
+    --theia-peekViewTitleDescription-foreground: var(--color-text-secondary);
+    --theia-peekViewTitleLabel-foreground: var(--color-text-primary);
+    --theia-icon-foreground: var(--color-text-primary);
+    --theia-focusBorder: var(--color-primary);
+    --theia-textLink-foreground: var(--color-primary);
+    --theia-textLink-activeForeground: var(--color-primary);
+    --theia-textPreformat-foreground: var(--color-text-secondary);
+    --theia-textBlockQuote-background: var(--color-background-elevated);
+    --theia-textBlockQuote-border: var(--color-border);
+    --theia-textCodeBlock-background: var(--color-background-elevated);
+    --theia-textSeparator-foreground: var(--color-border);
+    --theia-welcomePage-background: var(--color-background);
+    --theia-welcomePage-progress-background: var(--color-background-elevated);
+    --theia-welcomePage-progress-foreground: var(--color-primary);
+    --theia-welcomePage-tileBackground: var(--color-background-elevated);
+    --theia-welcomePage-tileHoverBackground: var(--color-background-paper);
+    --theia-welcomePage-tileBorder: var(--color-border);
+    --theia-walkThrough-embeddedEditorBackground: var(--color-background);
+    --theia-symbolIcon-arrayForeground: var(--color-text-primary);
+    --theia-symbolIcon-booleanForeground: var(--color-primary);
+    --theia-symbolIcon-classForeground: var(--color-warning);
+    --theia-symbolIcon-colorForeground: var(--color-accent);
+    --theia-symbolIcon-constantForeground: var(--color-text-primary);
+    --theia-symbolIcon-constructorForeground: var(--color-secondary);
+    --theia-symbolIcon-enumeratorForeground: var(--color-warning);
+    --theia-symbolIcon-enumeratorMemberForeground: var(--color-primary);
+    --theia-symbolIcon-eventForeground: var(--color-accent);
+    --theia-symbolIcon-fieldForeground: var(--color-primary);
+    --theia-symbolIcon-fileForeground: var(--color-text-primary);
+    --theia-symbolIcon-folderForeground: var(--color-text-primary);
+    --theia-symbolIcon-functionForeground: var(--color-secondary);
+    --theia-symbolIcon-interfaceForeground: var(--color-primary);
+    --theia-symbolIcon-keyForeground: var(--color-text-primary);
+    --theia-symbolIcon-keywordForeground: var(--color-accent);
+    --theia-symbolIcon-methodForeground: var(--color-secondary);
+    --theia-symbolIcon-moduleForeground: var(--color-text-primary);
+    --theia-symbolIcon-namespaceForeground: var(--color-text-primary);
+    --theia-symbolIcon-nullForeground: var(--color-text-secondary);
+    --theia-symbolIcon-numberForeground: var(--color-success);
+    --theia-symbolIcon-objectForeground: var(--color-text-primary);
+    --theia-symbolIcon-operatorForeground: var(--color-text-primary);
+    --theia-symbolIcon-packageForeground: var(--color-text-primary);
+    --theia-symbolIcon-propertyForeground: var(--color-primary);
+    --theia-symbolIcon-referenceForeground: var(--color-text-primary);
+    --theia-symbolIcon-snippetForeground: var(--color-text-primary);
+    --theia-symbolIcon-stringForeground: var(--color-success);
+    --theia-symbolIcon-structForeground: var(--color-warning);
+    --theia-symbolIcon-textForeground: var(--color-text-primary);
+    --theia-symbolIcon-typeParameterForeground: var(--color-text-primary);
+    --theia-symbolIcon-unitForeground: var(--color-text-primary);
+    --theia-symbolIcon-variableForeground: var(--color-primary);
+}
+
+/* Apply Inter font family globally */
+body, .theia-ApplicationShell {
+    font-family: var(--font-family-primary) !important;
+    background-color: var(--color-background) !important;
+    color: var(--color-text-primary) !important;
+}
+
+.theia-icon {
+    background-image: url("../icons/512-512.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* Updated header styling with Autheo theme */
+.gs-blue-header {
+    color: var(--color-primary);
+    text-transform: capitalize;
+    font-weight: var(--font-weight-semibold);
+}
+
+.gs-text-bold {
+    font-weight: var(--font-weight-semibold);
+}
+
+.gs-text-underline {
+    text-decoration: underline;
+}
+
+.gs-float {
+    float: right;
+    padding-left: 20px;
+}
+
+.gs-logo {
+    background-image: var(--theia-branding-logo);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 250px;
+    height: 118px;
+    padding: 20px;
+}
+
+.ad-logo {
+    background-image: var(--theia-branding-logo);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 250px;
+    height: 118px;
+    padding: 20px;
+}
+
+.ad-float {
+    float: right;
+}
+
+.ad-container {
+    padding: 20px;
+    width: 1150px;
+    height: 700px;
+    background-color: var(--color-background-elevated);
+    color: var(--color-text-primary);
+}
+
+ul.theia-aboutExtensions {
+    height: 450px;
+    overflow: hidden;
+    overflow-y: scroll;
+    list-style-type: none;
+    padding: 0;
+    margin-left: 10px;
+    background-color: var(--color-background-elevated);
+    color: var(--color-text-primary);
+}
+
+/* Additional Autheo theme enhancements */
+.theia-ApplicationShell .p-Widget {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+}
+
+/* Scrollbar styling for Autheo theme */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-background-elevated);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 199, 176, 0.8);
+}
+
+/* Focus styles with Autheo primary color */
+*:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Button styling enhancements */
+.theia-button {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    border: 1px solid var(--color-primary);
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+.theia-button:hover {
+    background-color: rgba(0, 199, 176, 0.8);
+}
+
+.theia-button.secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-secondary);
+}
+
+.theia-button.secondary:hover {
+    background-color: rgba(42, 47, 91, 0.8);
+}
+
+/* Input field styling */
+.theia-input {
+    background-color: var(--color-background-elevated);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    font-family: var(--font-family-primary);
+}
+
+.theia-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(0, 199, 176, 0.2);
+}
+
+/* Menu styling */
+.p-Menu {
+    background-color: var(--color-background-elevated);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.p-Menu-item {
+    color: var(--color-text-primary);
+}
+
+.p-Menu-item:hover {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.p-Menu-item.p-mod-active {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+/* Tab styling */
+.p-TabBar-tab {
+    background-color: var(--color-background-elevated);
+    color: var(--color-text-secondary);
+    border-bottom: 2px solid transparent;
+}
+
+.p-TabBar-tab.p-mod-current {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+.p-TabBar-tab:hover {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+}
+
+/* Status bar styling */
+.theia-statusBar {
+    background-color: var(--color-background-paper);
+    color: var(--color-text-primary);
+    border-top: 1px solid var(--color-border);
+}
+
+/* Activity bar styling */
+.theia-app-left .theia-app-sidebar {
+    background-color: var(--color-background-paper);
+}
+
+.theia-app-left .theia-app-sidebar .p-TabBar-tab {
+    color: var(--color-text-secondary);
+}
+
+.theia-app-left .theia-app-sidebar .p-TabBar-tab.p-mod-current {
+    color: var(--color-primary);
+    border-right: 2px solid var(--color-primary);
+}
+
+/* Side panel styling */
+.theia-app-right .theia-app-sidebar,
+.theia-app-left .theia-app-sidebar .p-Widget {
+    background-color: var(--color-background-elevated);
+    color: var(--color-text-primary);
+}
+
+/* Terminal styling */
+.xterm-viewport {
+    background-color: var(--color-background);
+}
+
+.xterm-screen {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+}
+
+/* Tree widget styling */
+.theia-TreeContainer {
+    background-color: var(--color-background-elevated);
+    color: var(--color-text-primary);
+}
+
+.theia-TreeNode {
+    color: var(--color-text-primary);
+}
+
+.theia-TreeNode.theia-mod-selected {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.theia-TreeNode:hover {
+    background-color: var(--color-background);
+}
+
+/* Editor styling */
+.monaco-editor {
+    background-color: var(--color-background);
+}
+
+.monaco-editor .margin {
+    background-color: var(--color-background);
+}
+
+/* Welcome page styling */
+.theia-WelcomeView {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+}
+
+/* Notification styling */
+.theia-Notification {
+    background-color: var(--color-background-elevated);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+}
+
+/* Dialog styling */
+.theia-Dialog {
+    background-color: var(--color-background-elevated);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+}
+
+.theia-Dialog .dialogTitle {
+    color: var(--color-text-primary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Progress bar styling */
+.theia-progress-bar {
+    background-color: var(--color-primary);
+}
+
+.theia-progress-bar-container {
+    background-color: var(--color-background-elevated);
+}
+/* Getting Started Widget and About Dialog styling */
+.gs-container {
+    background-color: #201f25;
+    color: var(--color-text-primary);
+    padding: 20px;
+    font-family: var(--font-family-primary);
+}
+
+.gs-content-container {
+    background-color: #201f25;
+    color: var(--color-text-primary);
+    padding: 20px;
+}
+
+.gs-header {
+    background-color: #201f25;
+    color: var(--color-text-primary);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 20px;
+}
+
+.gs-header h1 {
+    color: var(--color-text-primary);
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-semibold);
+    margin: 0;
+}
+
+.flex-grid {
+    background-color: #201f25;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+.flex-grid .col {
+    background-color: #201f25;
+    color: var(--color-text-primary);
+    flex: 1;
+    padding: 10px;
+}
+
+.gs-hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 20px 0;
+    background-color: transparent;
+}
+
+/* Additional styling for getting started content */
+.gs-container p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.gs-container a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.gs-container a:hover {
+    color: rgba(0, 199, 176, 0.8);
+    text-decoration: underline;
+}
+
+.gs-container ul {
+    color: var(--color-text-secondary);
+    padding-left: 20px;
+}
+
+.gs-container li {
+    margin: 5px 0;
+}
+/* Core Theia and Lumino Widget Background Styling */
+.enable-motion.underline-links.vs-dark.dark-theia.windows.theia-dark.theia-mod-offline,
+.lm-Widget.theia-ApplicationShell.monaco-workbench,
+.lm-Widget.lm-Panel,
+.lm-Widget.lm-TabBar-toolbar.ps,
+.lm-Widget.lm-Panel.lm-SplitPanel,
+.lm-Widget.lm-Panel.lm-BoxPanel.lm-SplitPanel-child {
+    background-color: #201f25 !important;
+}
+
+/* Additional Lumino Widget classes for consistency */
+.lm-Widget {
+    background-color: #201f25;
+}
+
+.lm-Panel {
+    background-color: #201f25;
+}
+
+.lm-SplitPanel {
+    background-color: #201f25;
+}
+
+.lm-BoxPanel {
+    background-color: #201f25;
+}
+
+.lm-TabBar-toolbar {
+    background-color: #201f25;
+}
+
+/* Theia Application Shell specific styling */
+.theia-ApplicationShell {
+    background-color: #201f25 !important;
+}
+
+.monaco-workbench {
+    background-color: #201f25 !important;
+}
+
+/* VS Code theme classes */
+.vs-dark {
+    background-color: #201f25 !important;
+}
+
+.dark-theia {
+    background-color: #201f25 !important;
+}
+
+.theia-dark {
+    background-color: #201f25 !important;
+}
+
+/* Ensure all child elements inherit the background */
+.theia-ApplicationShell * {
+    background-color: inherit;
+}
+
+/* Override any conflicting Monaco editor backgrounds */
+.monaco-editor,
+.monaco-editor .margin,
+.monaco-editor-background {
+    background-color: #201f25 !important;
+}

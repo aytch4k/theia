@@ -1,123 +1,148 @@
 <br/>
 <div id="theia-logo" align="center">
     <br />
-    <img src="https://raw.githubusercontent.com/eclipse-theia/theia/master/logo/theia-logo-gray.svg?sanitize=true" alt="Theia Logo" width="300"/>
-    <h3>Cloud & Desktop IDE Framework</h3>
+    <img src="https://raw.githubusercontent.com/eclipse-theia/theia-ide/master/theia-extensions/product/src/browser/icons/TheiaIDE.png" alt="Theia Logo" width="300"/>
+    <h3>Eclipse Theia IDE</h3>
 </div>
 
 <div id="badges" align="center">
 
-  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-curved)](https://github.com/eclipse-theia/theia/labels/help%20wanted)
-  [![Build Status](https://github.com/eclipse-theia/theia/workflows/Build/badge.svg?branch=master)](https://github.com/eclipse-theia/theia/actions?query=branch%3Amaster+event%3Apush+event%3Aschedule)
-  [![Publish VS Code Built-in Extensions](https://github.com/eclipse-theia/vscode-builtin-extensions/actions/workflows/publish-vsx-latest.yml/badge.svg?branch=master)](https://github.com/eclipse-theia/vscode-builtin-extensions/actions/workflows/publish-vsx-latest.yml)
-  [![Open questions](https://img.shields.io/badge/Open-questions-blue.svg?style=flat-curved)](https://github.com/eclipse-theia/theia/discussions/categories/q-a)
-  [![Open bugs](https://img.shields.io/badge/Open-bugs-red.svg?style=flat-curved)](https://github.com/eclipse-theia/theia/labels/bug)
-  [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/eclipse-theia/theia)
-
-Eclipse Theia is an extensible framework to develop full-fledged multi-language Cloud & Desktop IDEs and tools with state-of-the-art web technologies.
+The Eclipse Theia IDE is built with this project.\
+Eclipse Theia IDE also serves as a template for building desktop-based products based on the Eclipse Theia platform.
 
 </div>
 
-- [Website](#website)
-- [Repositories](#repositories)
-- [Releases](#releases)
-- [Scope](#scope)
-- [Roadmap](#roadmap)
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [Feedback](#feedback)
-- [Documentation](#documentation)
-- [License](#license)
-- [Trademark](#trademark)
+[![Installers](https://img.shields.io/badge/download-installers-blue.svg?style=flat-curved)](https://theia-ide.org//#theiaidedownload)
+[![Build Status](https://ci.eclipse.org/theia/buildStatus/icon?subject=latest&job=Theia2%2Fmaster)](https://ci.eclipse.org/theia/job/Theia2/job/master/)
+<!-- currently we have no working next job because next builds are not published -->
+<!-- [![Build Status](https://ci.eclipse.org/theia/buildStatus/icon?subject=next&job=theia-next%2Fmaster)](https://ci.eclipse.org/theia/job/theia-next/job/master/) -->
 
-<div style='margin:0 auto;width:60%;'>
+[Main Theia Repository](https://github.com/eclipse-theia/theia)
 
-![Theia](https://raw.githubusercontent.com/eclipse-theia/theia/master/doc/images/theia-screenshot.png)
-
-</div>
-
-## Website
-
-[Visit the Eclipse Theia website](http://www.theia-ide.org) for more information and [the Theia documentation](http://www.theia-ide.org/docs).
-
-## Repositories
-
-This is the main repository for the Eclipse Theia project, containing the sources of the Theia Platform. Please open generic discussions, bug reports and feature requests about Theia on this repository. The Theia project also includes additional repositories, e.g. for the [artifacts building the Theia IDE](https://github.com/eclipse-theia/theia-blueprint) and the [Theia website](https://github.com/eclipse-theia/theia-website). Please also see the [overview of all Theia project repositories](https://github.com/eclipse-theia).
-
-## Releases
-
-- [All available releases](https://github.com/eclipse-theia/theia/releases) are available on GitHub including changelogs.
-- [Detailed release announcements](https://theia-ide.org/resources/) are linked on the Theia website.
-- [Community Releases](https://theia-ide.org/releases/) are listed on the Theia website.
-- [Visit the release website](https://theia-ide.org/releases/) for more information.
-
-## Scope
-
-- Support building browser-based and desktop IDEs and tools
-- Provide a highly flexible architecture for adopters
-- Support VS Code Extension protocol
-- Develop under vendor-neutral open-source governance
-
-[More details on the project goals](https://theia-ide.org/docs/project_goals/) are available on the Theia website.
-
-## Roadmap
-
-See [our roadmap](https://github.com/eclipse-theia/theia/wiki/Eclipse-Theia-Roadmap) for an overview about the current project goals and the upcoming releases.
-
-## Getting Started
-
-Here you can find guides and examples for common scenarios to adopt Theia:
-
-- [Get an overview of how to get started](https://theia-ide.org/#gettingstarted) on the Theia website
-- [Develop a Theia application - your own IDE/Tool](https://theia-ide.org/docs/composing_applications/)
-- [Learn about Theia's extension mechanisms](https://theia-ide.org/docs/extensions/)
-- [Develop a VS Code like extension](https://theia-ide.org/docs/authoring_vscode_extensions/)
-- [Develop a Theia extension](https://theia-ide.org/docs/authoring_extensions/)
-- [Test a VS Code extension in Theia](https://github.com/eclipse-theia/theia/wiki/Testing-VS-Code-extensions)
-- [Package a desktop Theia application with Electron](https://theia-ide.org/docs/blueprint_documentation/)
-
-## Contributing
-
-Read below to learn how to take part in improving Theia:
-
-- Fork the repository and [run the examples from source](doc/Developing.md#quick-start)
-- Get familiar with [the development workflow](doc/Developing.md), [Coding Guidelines](doc/coding-guidelines.md), [Code of Conduct](CODE_OF_CONDUCT.md) and [sign the Eclipse contributor agreement](CONTRIBUTING.md#eclipse-contributor-agreement)
-- Find an issue to work on and submit a pull request
-  - First time contributing to open source? Pick a [good first issue](https://github.com/eclipse-theia/theia/labels/good%20first%20issue) to get you familiar with GitHub contributing process.
-  - First time contributing to Theia? Pick a [beginner friendly issue](https://github.com/eclipse-theia/theia/labels/beginners) to get you familiar with codebase and our contributing process.
-  - Want to become a Committer? Solve an issue showing that you understand Theia objectives and architecture. [Here](https://github.com/eclipse-theia/theia/labels/help%20wanted) is a good list to start. Further, have a look at our [roadmap](https://github.com/eclipse-theia/theia/wiki/Eclipse-Theia-Roadmap) to align your contributions with the current project goals.
-- Could not find an issue? Look for bugs, typos, and missing features.
-
-## Feedback
-
-Read below how to engage with Theia community:
-
-- Join the discussion on [GitHub](https://github.com/eclipse-theia/theia/discussions).
-- Ask a question, request a new feature and file a bug with [GitHub issues](https://github.com/eclipse-theia/theia/issues/new/choose).
-- Vote on existing GitHub issues by reacting with a 👍. We regularly check issues with votes!
-- Star the repository to show your support.
-- Follow Theia on [Twitter](https://twitter.com/theia_ide).
-- Join the [weekly developer call](https://github.com/eclipse-theia/theia/wiki/Dev-Meetings)
-
-## Documentation
-
-- [API Documentation](https://eclipse-theia.github.io/theia/docs/next/index.html)
-- [General Documentation](https://theia-ide.org/docs/)
-- [VS Code API Compatibility Report](https://eclipse-theia.github.io/vscode-theia-comparator/status.html)
-- Useful Links:
-  - [Developing](doc/Developing.md)
-  - [Testing](doc/Testing.md)
-  - [Migration Guide](doc/Migration.md)
-  - [API Integration Testing](doc/api-testing.md)
-  - [Coding Guidelines](doc/coding-guidelines.md)
-  - [Code Organization](doc/code-organization.md)
-  - [Plugin and VSCode API](doc/Plugin-API.md)
+[Visit the Theia website](http://www.theia-ide.org) for more documentation: [Using the Theia IDE](https://theia-ide.org/docs/user_getting_started/), [Packaging Theia as a Desktop Product](https://theia-ide.org/docs/blueprint_documentation/).
 
 ## License
 
-- [Eclipse Public License 2.0](LICENSE-EPL)
-- [一 (Secondary) GNU General Public License, version 2 with the GNU Classpath Exception](LICENSE-GPL-2.0-ONLY-CLASSPATH-EXCEPTION)
+- [MIT](LICENSE)
 
 ## Trademark
 
-"Theia" is a **trademark of the Eclipse Foundation**. [Learn More](https://www.eclipse.org/theia)
+"Theia" is a trademark of the Eclipse Foundation
+<https://www.eclipse.org/theia>
+
+## What is this?
+
+The Eclipse IDE is a modern and open IDE for cloud and desktop. The Theia IDE is based on the [Theia platform](https://theia-ide.org).
+The Theia IDE is available as a [downloadable desktop application](https://theia-ide.org//#theiaidedownload). You can also try the latest version of the Theia IDE online. The online test version is limited to 30 minutes per session and hosted via Theia.cloud. Finally, we provide an [experimental Docker image](#docker) for hosting the Theia IDE online.
+
+The Eclipse Theia IDE also serves as a **template** for building desktop-based products based on the Eclipse Theia platform, as well as to showcase Eclipse Theia capabilities. It is made up of a subset of existing Eclipse Theia features and extensions. [Documentation is available](https://theia-ide.org/docs/composing_applications/) to help you customize and build your own Eclipse Theia-based product.
+
+## Theia IDE vs Theia Blueprint
+
+The Theia IDE has been rebranded from its original name “Theia Blueprint”. You can therefore assume the terms “Theia IDE” and “Theia Blueprint” to be synonymous.
+
+## Development
+
+### Requirements
+
+Please check Theia's [prerequisites](https://github.com/eclipse-theia/theia/blob/master/doc/Developing.md#prerequisites), and keep node versions aligned between Theia IDE and that of the referenced Theia version.
+
+### Documentation
+
+Documentation on how to package Theia as a Desktop Product may be found [here](https://theia-ide.org/docs/blueprint_documentation/)
+
+### Repository Structure
+
+- Root level configures mono-repo build with lerna
+- `applications` groups the different app targets
+  - `browser` contains a browser based version of Eclipse Theia IDE that may be packaged as a Docker image
+  - `electron` contains the electron app to package, packaging configuration, and E2E tests for the electron target.
+- `theia-extensions` groups the various custom theia extensions for the Eclipse Theia IDE
+  - `product` contains a Theia extension contributing the product branding (about dialogue and welcome page).
+  - `updater` contains a Theia extension contributing the update mechanism and corresponding UI elements (based on the electron updater).
+  - `launcher` contains a Theia extension contributing, for AppImage applications, the option to create a script that allows to start the Eclipse Theia IDE from the command line by calling the 'theia' command.
+
+### Build
+
+For development and casual testing of the Eclipse Theia IDE, one can build it in "dev" mode. This permits building the IDE on systems with less resources, like a Raspberry Pi 4B with 4GB of RAM.
+
+```sh
+# Build "dev" version of the app. Its quicker, uses less resources, 
+# but the front end app is not "minified"
+yarn && yarn build:dev && yarn download:plugins
+```
+
+Production applications:
+
+```sh
+# Build production version of the Eclipse Theia IDE app
+yarn && yarn build && yarn download:plugins
+```
+
+### Package the Applications
+
+ATM we only produce packages for the Electron application.
+
+```sh
+yarn package:applications
+# or
+yarn electron package
+```
+
+The packaged application is located in `applications/electron/dist`.
+
+### Create a Preview Electron Electron Application (without packaging it)
+
+```sh
+yarn electron package:preview
+```
+
+The packaged application is located in `applications/electron/dist`.
+
+### Running E2E Tests on Electron
+
+The E2E tests basic UI tests of the actual application.
+This is done based on the preview of the packaged application.
+
+```sh
+yarn electron package:preview
+yarn electron test
+```
+
+### Running Browser app
+
+The browser app may be started with
+
+```sh
+yarn browser start
+```
+
+and connect to <http://localhost:3000/>
+
+### Troubleshooting
+
+- [_"Don't expect that you can build app for all platforms on one platform."_](https://www.electron.build/multi-platform-build)
+
+### Reporting Feature Requests and Bugs
+
+The features in the Eclipse Theia IDE are based on Theia and the included extensions/plugins. For bugs in Theia please consider opening an issue in the [Theia project on Github](https://github.com/eclipse-theia/theia/issues/new/choose).
+The Eclipse Theia IDE only packages existing functionality into a product and installers for the product. If you believe there is a mistake in packaging, something needs to be added to the packaging or the installers do not work properly, please [open an issue on Github](https://github.com/eclipse-theia/theia-ide/issues/new/choose) to let us know.
+
+### Docker
+
+The Docker image of the Theia IDE is currently in _experimental state_. It is built from the same sources and packages as the desktop version, but it is not part of the [preview test](https://github.com/eclipse-theia/theia-ide/blob/master/PUBLISHING.md#preview-testing-and-release-process-for-the-theia-ide).
+You can find a prebuilt Docker image of the IDE [here](https://github.com/eclipse-theia/theia-ide/pkgs/container/theia-ide%2Ftheia-ide).
+
+You can also create the Docker image for the Eclipse Theia IDE based on the browser app with the following build command:
+
+```sh
+docker build -t theia-ide -f browser.Dockerfile .
+```
+
+You may then run this with
+
+```sh
+docker run -p=3000:3000 --rm theia-ide
+```
+
+and connect to <http://localhost:3000/>

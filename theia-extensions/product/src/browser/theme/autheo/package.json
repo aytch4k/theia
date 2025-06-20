@@ -1,0 +1,39 @@
+{
+  "name": "autheo-theme-bundle",
+  "version": "1.0.0",
+  "description": "Professional dark theme system for Autheo React/TypeScript projects",
+  "main": "theme/index.js",
+  "types": "theme/index.ts",
+  "keywords": [
+    "theme",
+    "tailwind",
+    "react",
+    "typescript",
+    "dark-theme",
+    "autheo"
+  ],
+  "author": "Autheo Development Team",
+  "license": "PROPRIETARY",
+  "peerDependencies": {
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0",
+    "react": "^18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "theme/",
+    "index.css",
+    "tailwind.config.js",
+    "README.md",
+    "IMPLEMENTATION.md",
+    "AI_AGENT_PROMPT.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "internal"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

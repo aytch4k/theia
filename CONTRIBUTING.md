@@ -48,14 +48,14 @@ We follow the contributing and reviewing pull request guidelines described
 ## Coding Guidelines
 
 We follow the coding guidelines described
-[here](doc/coding-guidelines.md).
+[here](https://github.com/eclipse-theia/theia/wiki/Coding-Guidelines).
 
 ## Eclipse Contributor Agreement
 
 Before your contribution can be accepted by the project team contributors must
 electronically sign the Eclipse Contributor Agreement (ECA).
 
-* <https://www.eclipse.org/legal/ECA.php>
+* https://www.eclipse.org/legal/ECA.php
 
 Commits that are provided by non-committers must have a Signed-off-by field in
 the footer indicating that the author is aware of the terms by which the
@@ -64,7 +64,7 @@ additionally have an Eclipse Foundation account and must have a signed Eclipse
 Contributor Agreement (ECA) on file.
 
 For more information, please see the Eclipse Committer Handbook:
-<https://www.eclipse.org/projects/handbook/#resources-commit>
+https://www.eclipse.org/projects/handbook/#resources-commit
 
 ## Sign your work
 

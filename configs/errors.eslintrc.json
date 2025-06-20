@@ -41,7 +41,6 @@
         "code": 180
       }
     ],
-    "no-duplicate-imports": "error",
     "no-magic-numbers": "off",
     "no-multiple-empty-lines": [
       "error",
@@ -62,7 +61,6 @@
     "no-throw-literal": "error",
     "no-trailing-spaces": "error",
     "no-underscore-dangle": "off",
-    "no-unreachable": "error",
     "no-unused-expressions": "error",
     "no-var": "error",
     "no-void": "error",
@@ -103,10 +101,7 @@
         "rules": {
           "file-header": [
             true,
-            {
-              "allow-single-line-comments": true,
-              "match": "SPDX-License-Identifier: EPL-2\\.0 OR GPL-2\\.0-only WITH Classpath-exception-2\\.0"
-            }
+            "SPDX-License-Identifier: MIT"
           ],
           "jsdoc-format": [
             true,
@@ -135,39 +130,16 @@
         }
       }
     ],
-    "@theia/annotation-check": "error",
-    "@theia/localization-check": "error",
-    "@theia/no-src-import": "error",
-    "@theia/runtime-import-check": "error",
-    "@theia/shared-dependencies": "error",
-    "import/no-extraneous-dependencies": "error",
-    "import/no-dynamic-require": "error",
-    "no-restricted-imports": [
-      "error",
-      ".",
-      "./",
-      "..",
-      "../"
-    ]
+    "import/no-extraneous-dependencies": "error"
   },
   "overrides": [
     {
       "files": [
-        "**/*.{spec,espec,slow-spec}.{js,ts}"
+        "dev-packages",
+        "*.{spec,espec,slow-spec}.{js,ts}"
       ],
       "rules": {
-        "@theia/runtime-import-check": "off",
-        "@theia/shared-dependencies": "off",
-        "import/no-extraneous-dependencies": "off",
-        "no-unused-expressions": "off"
-      }
-    },
-    {
-      "files": [
-        "**/electron-{node,main}/**"
-      ],
-      "rules": {
-        "import/no-dynamic-require": "off"
+        "import/no-extraneous-dependencies": "off"
       }
     }
   ]
