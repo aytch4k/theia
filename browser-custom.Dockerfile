@@ -38,10 +38,17 @@ RUN chmod g+rw /home && \
     chown -R theia:theia /home/theia && \
     chown -R theia:theia /home/project;
 
-# Install required tools for application: Temurin JDK, JDK, SSH, Bash, Maven
+# Install required tools for application: Temurin JDK, JDK, SSH, Bash, Maven, IPFS
 # Node is already available in base image
-RUN apt-get update && apt-get install -y wget apt-transport-https && \
+RUN apt-get update && apt-get install -y wget apt-transport-https curl && \
     apt-get update && apt-get install -y git openssh-client openssh-server bash libsecret-1-0 openjdk-17-jdk maven && \
+    # Install IPFS
+    wget https://dist.ipfs.tech/kubo/v0.24.0/kubo_v0.24.0_linux-amd64.tar.gz && \
+    tar -xzf kubo_v0.24.0_linux-amd64.tar.gz && \
+    cd kubo && \
+    bash install.sh && \
+    cd .. && \
+    rm -rf kubo kubo_v0.24.0_linux-amd64.tar.gz && \
     apt-get purge -y wget && \
     apt-get clean
 
@@ -51,7 +58,14 @@ WORKDIR /home/theia
 # Copy application from builder-stage
 COPY --from=build-stage --chown=theia:theia /home/theia /home/theia
 
-EXPOSE 7777
+# Copy IPFS initialization script and entrypoint
+COPY --chown=theia:theia scripts/init-ipfs-workspace.sh /home/theia/init-ipfs-workspace.sh
+COPY --chown=theia:theia scripts/docker-entrypoint.sh /home/theia/docker-entrypoint.sh
+RUN chmod +x /home/theia/init-ipfs-workspace.sh && \
+    chmod +x /home/theia/docker-entrypoint.sh
+
+# Expose multiple ports for different configurations
+EXPOSE 7776 7777 7778
 
 # Specify default shell for Theia and the Built-In plugins directory
 ENV SHELL=/bin/bash \
@@ -64,8 +78,8 @@ ENV USE_LOCAL_GIT true
 USER theia
 WORKDIR /home/theia/applications/browser
 
-# Launch the backend application via node
-ENTRYPOINT [ "node", "/home/theia/applications/browser/lib/backend/main.js" ]
+# Launch the backend application via custom entrypoint
+ENTRYPOINT [ "/home/theia/docker-entrypoint.sh" ]
 
 # Arguments passed to the application - using port 7777 instead of 3000
 CMD [ "/home/project", "--hostname=0.0.0.0", "--port=7777" ]
